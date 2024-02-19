@@ -51,3 +51,5 @@ B
 src/pages/_app.jsx,5\4\54e58074b2b3ac9c1dc72d0158fcc258dcc8e565
 G
 src/pages/_document.jsx,7\0\706595127b995066d115a4a615cd58de24096ac1
+O
+src/images/social/instagram.svg,a\b\ab73e16914dfeb491e8f7987b0e40a6bc94fc573
