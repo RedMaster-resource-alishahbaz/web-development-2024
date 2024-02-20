@@ -1,21 +1,141 @@
-@layer base {
-  :root {
-    --shiki-color-text: theme('colors.white');
-    --shiki-token-constant: theme('colors.emerald.300');
-    --shiki-token-string: theme('colors.emerald.300');
-    --shiki-token-comment: theme('colors.zinc.500');
-    --shiki-token-keyword: theme('colors.sky.300');
-    --shiki-token-parameter: theme('colors.pink.300');
-    --shiki-token-function: theme('colors.violet.300');
-    --shiki-token-string-expression: theme('colors.emerald.300');
-    --shiki-token-punctuation: theme('colors.zinc.200');
-  }
-
-  [inert] ::-webkit-scrollbar {
-    display: none;
-  }
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* Animations */
+@keyframes eye1 {
+    from {
+        transform: rotate(-260deg) translate(0, -56px);
+    }
+    50%,
+    60% {
+        animation-timing-function: cubic-bezier(0.17, 0, 0.58, 1);
+        transform: rotate(-40deg) translate(0, -56px) scale(1);
+    }
+    to {
+        transform: rotate(225deg) translate(0, -56px) scale(0.35);
+    }
+}
+@keyframes eye2 {
+    from {
+        transform: rotate(-260deg) translate(0, -56px);
+    }
+    50% {
+        transform: rotate(40deg) translate(0, -56px) rotate(-40deg) scale(1);
+    }
+    52.5% {
+        transform: rotate(40deg) translate(0, -56px) rotate(-40deg) scale(1, 0);
+    }
+    55%,
+    70% {
+        animation-timing-function: cubic-bezier(0, 0, 0.28, 1);
+        transform: rotate(40deg) translate(0, -56px) rotate(-40deg) scale(1);
+    }
+    to {
+        transform: rotate(150deg) translate(0, -56px) scale(0.4);
+    }
+}
+@keyframes eyeBlink {
+    from,
+    25%,
+    75%,
+    to {
+        transform: scaleY(1);
+    }
+    50% {
+        transform: scaleY(0);
+    }
+}
+@keyframes mouth1 {
+    from {
+        animation-timing-function: ease-in;
+        stroke-dasharray: 0 351.86;
+        stroke-dashoffset: 0;
+    }
+    25% {
+        animation-timing-function: ease-out;
+        stroke-dasharray: 175.93 351.86;
+        stroke-dashoffset: 0;
+    }
+    50% {
+        animation-timing-function: steps(1, start);
+        stroke-dasharray: 175.93 351.86;
+        stroke-dashoffset: -175.93;
+        visibility: visible;
+    }
+    75%,
+    to {
+        visibility: hidden;
+    }
+}
+@keyframes mouth2 {
+    from {
+        animation-timing-function: steps(1, end);
+        visibility: hidden;
+    }
+    50% {
+        animation-timing-function: ease-in-out;
+        visibility: visible;
+        stroke-dashoffset: 0;
+    }
+    to {
+        stroke-dashoffset: -351.86;
+    }
+}
+
+@layer base {
+    :root {
+        --shiki-color-text: theme('colors.white');
+        --shiki-token-constant: theme('colors.emerald.300');
+        --shiki-token-string: theme('colors.emerald.300');
+        --shiki-token-comment: theme('colors.zinc.500');
+        --shiki-token-keyword: theme('colors.sky.300');
+        --shiki-token-parameter: theme('colors.pink.300');
+        --shiki-token-function: theme('colors.violet.300');
+        --shiki-token-string-expression: theme('colors.emerald.300');
+        --shiki-token-punctuation: theme('colors.zinc.200');
+    }
+
+    [inert] ::-webkit-scrollbar {
+        display: none;
+    }
+
+    .smiley__eye1,
+    .smiley__eye2,
+    .smiley__mouth1,
+    .smiley__mouth2 {
+        animation: eye1 3s ease-in-out infinite;
+    }
+
+    .smiley__eye1,
+    .smiley__eye2 {
+        transform-origin: 64px 64px;
+    }
+
+    .smiley__eye2 {
+        animation-name: eye2;
+    }
+
+    .smiley__mouth1 {
+        animation-name: mouth1;
+    }
+
+    .smiley__mouth2 {
+        animation-name: mouth2;
+        visibility: hidden;
+    }
+
+
+
+}
+
+@layer components {
+    .iconFooter {
+        @apply relative bg-white rounded-full m-4 w-12 h-12 flex flex-col items-center justify-center cursor-pointer shadow-md shadow-zinc-400 ;
+    }
+
+    .tooltipSocial {
+        @apply absolute top-0 text-xs bg-white py-1 px-2 rounded shadow opacity-0 pointer-events-none transition-all duration-300 before:absolute before:h-4 before:w-4 before:bg-white before:-bottom-1 before:left-1/2 before:-translate-x-1/2 before:rotate-45 before:transition-all before:duration-300 before:-z-10 group-hover:-top-[45px] group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto;
+    }
+}
