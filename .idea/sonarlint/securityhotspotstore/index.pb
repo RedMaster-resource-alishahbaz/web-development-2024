@@ -59,3 +59,7 @@ F
 src/pages/contacts.mdx,9\3\9336f5853da6286d194a59009eeca0b5dfce5850
 M
 src/components/ButtonStar.jsx,e\4\e4beef9d92b66b2de693348a9a9332a86ce4b438
+D
+src/pages/groups.mdx,b\9\b96aaee0da3feeed95ff55e2072947bd5a087431
+B
+tailwind.config.js,0\9\0918cbb76f2c44f223706cec9d31a32cd1177ce4

@@ -5,7 +5,6 @@ import {navigation} from '@/components/Navigation'
 import {PiInstagramLogo, PiTelegramLogo, PiWhatsappLogo, PiYoutubeLogo} from "react-icons/pi";
 import {FaMailchimp} from "react-icons/fa";
 import {PiCopyrightBold} from "react-icons/pi";
-
 function PageLink({label, page, previous = false}) {
     return (
         <>
@@ -69,7 +68,8 @@ function SmallPrint() {
             className="flex flex-col items-center justify-between gap-5 border-t border-zinc-900/5 pt-8 dark:border-white/5 sm:flex-row">
             <div className="text-xs text-zinc-600 dark:text-zinc-400 flex items-center gap-2">
                 <PiCopyrightBold className="text-2xl"/>
-                <p>Copyright {new Date().toDateString()}. All rights reserved.</p>
+                <p>Copyright {new Date().toDateString()}. All rights reserved By.</p>
+                <Link href="/">RedMaster</Link>
             </div>
 
             <div className="flex gap-4">
@@ -106,11 +106,11 @@ function FeedBack() {
             action="/thank-you"
             className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40"
         >
-            <h2 className="flex items-center text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-                <FaMailchimp className="text-4xl dark:text-white text-zinc-900"/>
+            <h2 className="flex items-center justify-center text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+                <FaMailchimp className="text-5xl dark:text-white text-zinc-900"/>
                 <span className="ml-4 font-semibold">Stay up to date</span>
             </h2>
-            <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+            <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400 text-center">
                 Get notified when I publish something new, and unsubscribe at any time.
             </p>
             <div className="mt-6 flex gap-4">

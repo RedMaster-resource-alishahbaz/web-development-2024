@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: "Vazir";
+    src: url("../../public/fonts/Vazir.ttf") format("truetype"),
+    url("../../public/fonts/Vazir.woff") format("woff"),
+    url("../../public/fonts/Vazir.woff2") format("woff");
+}
+
+@font-face {
+    font-family: 'IRANSans-web';
+    src: url('../../public/fonts/IRANSans-web.ttf');
+
+    src: url('../../public/fonts/IRANSans-web.eot') format('eot'), /* IE6–8 */ url('../../public/fonts/IRANSans-web.woff2') format('woff2'), /* Chrome36+, Opera24+*/ url('../../public/fonts/IRANSans-web.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url('../../public/fonts/IRANSans-web.ttf') format('ttf');
+    font-weight: bold;
+}
 
 /* Animations */
 @keyframes eye1 {
@@ -17,6 +31,7 @@
         transform: rotate(225deg) translate(0, -56px) scale(0.35);
     }
 }
+
 @keyframes eye2 {
     from {
         transform: rotate(-260deg) translate(0, -56px);
@@ -36,6 +51,7 @@
         transform: rotate(150deg) translate(0, -56px) scale(0.4);
     }
 }
+
 @keyframes eyeBlink {
     from,
     25%,
@@ -47,6 +63,7 @@
         transform: scaleY(0);
     }
 }
+
 @keyframes mouth1 {
     from {
         animation-timing-function: ease-in;
@@ -69,6 +86,7 @@
         visibility: hidden;
     }
 }
+
 @keyframes mouth2 {
     from {
         animation-timing-function: steps(1, end);
@@ -95,6 +113,11 @@
         --shiki-token-function: theme('colors.violet.300');
         --shiki-token-string-expression: theme('colors.emerald.300');
         --shiki-token-punctuation: theme('colors.zinc.200');
+    }
+
+    body {
+        @apply font-iranSans;
+        /*@apply font-vazir;*/
     }
 
     [inert] ::-webkit-scrollbar {
@@ -126,13 +149,11 @@
         visibility: hidden;
     }
 
-
-
 }
 
 @layer components {
     .iconFooter {
-        @apply relative bg-white rounded-full m-4 w-12 h-12 flex flex-col items-center justify-center cursor-pointer shadow-md shadow-zinc-400 ;
+        @apply relative  rounded-full m-4 w-10 h-10 flex flex-col items-center justify-center cursor-pointer bg-zinc-900 text-white dark:bg-white dark:text-zinc-900;
     }
 
     .tooltipSocial {
